@@ -19,7 +19,7 @@ babel编译处理有三个阶段
 - 转换（babel-traverse）：在这个阶段对AST语法树进行浏览、分析和修改，比如可以在这一步做tree shaking，转换生成新的AST语法树
 - 生成（babel-generator）：将上一阶段转换生成的AST语法树 再重新编译回javascript代码
 
-<img src="images/label.png">
+<img src="/public/label.png">
 
 
 ---
@@ -39,7 +39,7 @@ babel编译处理有三个阶段
 
 - 它以树状的形式表现编程语言的语法结构，树上的每个节点都表示源代码中的一种结构。
 
-<img src="images/ast.png">
+<img src="/public/ast.png">
 
 
 <!--
@@ -56,65 +56,6 @@ babel编译处理有三个阶段
 - 📤 webpack 通过 babel 转译 javascript 语法、代码打包等；
 - ...
 
-<br>
-<br>
-
-那么AST语法树表现形式是什么，如何进行转换的？
-
----
-
-# 示例
-
-
-解析js代码`var answer = 6 * 7;`，生成[AST语法树](https://esprima.org/demo/parse.html#)的图例
-
-<br>
-
-<div style="text-align: center; vertical-align: middle;">
-  <img style="display: inline-block" src="images/template1.png">
-</div>
-
-<style>
-.footnotes-sep {
-  margin-top: 3em;
-}
-.footnote-backref {
-  display: none
-}
-.slidev-layout p {
-  margin-top: 0.7rem;
-  margin-bottom: 0.3rem;
-}
-</style>
-
-<!-- 
-  BinaryExpression这里其实是declarator中init属性的值，代表这个变量的初始化
-
-  {
-    "type": "Program",
-    "body": [
-      {
-        "type": "VariableDeclaration",
-        "declarations": [
-          {
-            "type": "VariableDeclarator",
-            "id": { "type": "Identifier", "name": "answer" },
-            "init": {
-              "type": "BinaryExpression","operator": "*",
-              "left": { "type": "Literal", "value": 6, "raw": "6" },
-              "right": { "type": "Literal", "value": 7, "raw": "7"
-              }
-            }
-          }
-        ],
-        "kind": "var"
-      }
-    ],
-    "sourceType": "script"
-  }
-
--->
-
 ---
 
 # 如何生成AST语法树
@@ -123,7 +64,6 @@ babel编译处理有三个阶段
 能够将JavaScript源码转化为抽象语法树（AST）的工具叫做JS Parser解析器。
 
 相同的JavaScript代码，通过各种parser解析的AST结果都是一样的，这是因为他们都参照了同样的[AST解析规范](https://github.com/estree/estree)
-
 
 ## 解析过程
 - 词法分析（Lexical Analysis）：将整个代码字符串分割成最小语法单元数组
